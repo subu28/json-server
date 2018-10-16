@@ -20,7 +20,13 @@ module.exports = (source, opts = { foreignKeySuffix: 'Id' }) => {
   router.use(bodyParser)
 
   // Create database
-  let db = low(source, { storage: s3Storage });
+  let db
+  if (_.isObject(source)) {
+    db = low()
+    db.setState(source)
+  } else {
+    db = low(source, { storage: s3Storage })
+  }
 
   validateData(db.getState())
 
