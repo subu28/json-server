@@ -3,6 +3,7 @@ const methodOverride = require('method-override')
 const _ = require('lodash')
 const lodashId = require('lodash-id')
 const low = require('lowdb')
+const fileAsync = require('lowdb/lib/storages/file-async')
 const s3Storage = require('../s3Storage')
 const bodyParser = require('../body-parser')
 const validateData = require('./validate-data')
@@ -24,8 +25,10 @@ module.exports = (source, opts = { foreignKeySuffix: 'Id' }) => {
   if (_.isObject(source)) {
     db = low()
     db.setState(source)
-  } else {
+  } else if (source.startsWith && source.startsWith("s3://")) {
     db = low(source, { storage: s3Storage })
+  } else {
+    db = low(source, { storage: fileAsync })
   }
 
   validateData(db.getState())
