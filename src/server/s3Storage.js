@@ -31,7 +31,7 @@ module.exports = {
       Body: JSON.stringify(obj),
       ContentType: 'application/json'
     }
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
       s3.getObject(params, (err, data) => {
         if (err) {
           reject(err)

@@ -25,7 +25,7 @@ module.exports = (source, opts = { foreignKeySuffix: 'Id' }) => {
   if (_.isObject(source)) {
     db = low()
     db.setState(source)
-  } else if (source.startsWith && source.startsWith("s3://")) {
+  } else if (source.startsWith && source.startsWith('s3://')) {
     db = low(source, { storage: s3Storage })
   } else {
     db = low(source, { storage: fileAsync })
