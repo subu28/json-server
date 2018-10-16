@@ -5,7 +5,7 @@ var s3 = new AWS.S3()
 module.exports = {
   read: function(source) {
     var temp = source.replace(/^s3:\/\//, '').split('/')
-    var bucket = temp.splice(0, 1)
+    var bucket = temp.splice(0, 1)[0]
     var key = temp.join('/')
     var params = {
       Bucket: bucket,
@@ -23,7 +23,7 @@ module.exports = {
   },
   write: function(dest, obj) {
     var temp = dest.replace(/^s3:\/\//, '').split('/')
-    var bucket = temp.splice(0, 1)
+    var bucket = temp.splice(0, 1)[0]
     var key = temp.join('/')
     var params = {
       Bucket: bucket,
