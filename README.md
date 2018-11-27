@@ -1,4 +1,8 @@
-# JSON Server [![](https://travis-ci.org/typicode/json-server.svg?branch=master)](https://travis-ci.org/typicode/json-server) [![](https://badge.fury.io/js/json-server.svg)](http://badge.fury.io/js/json-server)
+# JSON Server S3
+<!-- [![](https://travis-ci.org/typicode/json-server.svg?branch=master)](https://travis-ci.org/typicode/json-server) [![](https://badge.fury.io/js/json-server.svg)](http://badge.fury.io/js/json-server) -->
+
+## this is a fork of JSON server project. This adds support for providing S3 location as the json source
+## provide source in the form of s3://<bucket name>/<path>/<to>/<file>
 
 Get a full fake REST API with __zero coding__ in __less than 30 seconds__ (seriously)
 

@@ -32,7 +32,7 @@ module.exports = {
       ContentType: 'application/json'
     }
     return new Promise(function(resolve, reject) {
-      s3.getObject(params, (err, data) => {
+      s3.putObject(params, (err, data) => {
         if (err) {
           reject(err)
         } else {
